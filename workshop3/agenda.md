@@ -243,9 +243,7 @@
     val x = 10
     val y = 5
     println(s"Logical AND: ${x > 0 && y > 0}")
-    println(s"Logical OR: ${x > 0 || y
-
- < 0}")
+    println(s"Logical OR: ${x > 0 || y < 0}")
     println(s"Logical NOT: ${!(x > 0)}")
   }
   ```
@@ -324,9 +322,3 @@
 - **Scala Documentation:** [Scala Basics](https://docs.scala-lang.org/tour/basics.html)
 - **Scala REPL:** Use the Scala REPL for interactive exploration of syntax and immediate feedback.
 - **Scala Exercises:** [Scala Exercises](https://www.scala-exercises.org/) for hands-on practice.
-
-By providing these expanded details, students will gain a comprehensive understanding of Scala's variables, type inference, basic data types, and operators, along with practical experience through hands-on activities. They will also learn how to run Scala scripts using `scala-cli`, ensuring they are well-prepared for real-world Scala programming.
-
----
-
-After copying and pasting this content into your word processor and following the steps to format and export as a PDF, you will have a neatly packaged document ready for your workshop. If you need any further assistance with the content or formatting, feel free to ask!
