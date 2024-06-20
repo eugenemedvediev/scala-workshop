@@ -48,6 +48,19 @@
   ```sh
   $ scala-cli script.sc
   ```
+- Self executable script
+  ```scala
+  #!/usr/bin/env -S scala-cli shebang
+  // <<tool.sc>>
+  println("I do not need scala-cli to run myself")
+  ```
+  ```sh
+  $ scala-cli shebang tool.sc
+  ```
+  ```sh
+  $ chmod +x tool.sc
+  $ ./tool.sc
+  ```
 **Structure of a Scala Program**
 - A Scala program typically consists of one or more objects and classes.
 - The entry point of a Scala application is often an `object` with an `App` trait or a `main` method.
