@@ -7,29 +7,78 @@
 - Syntax is designed to be concise and readable.
 - Scala programs are typically composed of expressions rather than statements.
 
+**Structure of a Scala script**
+- A Scala script typically consists of one or more lines of code.
+- Example structure:
+  ```scala
+  // <<script.sc>>
+  println("Hello, World!")
+  println("Hello, There!")
+  ```
+  ```scala
+  // <<script.sc>>
+  {
+    println("Hello, World!")
+    println("Hello, There!")
+  }
+  ```
+  ```sh
+  $ scala-cli script.sc
+  ```
+  ```scala
+  // <<Output.scala>>
+  object Output{
+    def greet(name: String): Unit = {
+      println(s"Hello, $name!")
+    }
+  }
+  ```
+  ```sh
+  $ scala-cli Output.scala
+  ```
+- Import another script
+  ```scala
+  // <<script.sc>>
+  //> using file Output.scala
+  {
+    println("Hello, World!")
+    Output.greet("Scala")
+  }
+  ```
+  ```sh
+  $ scala-cli script.sc
+  ```
 **Structure of a Scala Program**
 - A Scala program typically consists of one or more objects and classes.
 - The entry point of a Scala application is often an `object` with an `App` trait or a `main` method.
 - Example structure:
   ```scala
+  // <<MyApp.scala>>
   object MyApp {
     def main(args: Array[String]): Unit = {
       println("Hello, World!")
     }
   }
   ```
+  ```sh
+  $ scala-cli MyApp.scala
+  ```
 
 **Writing a Simple "Hello, World!" Program**
 - The simplest form of a Scala program prints "Hello, World!" to the console.
 - Using the `App` trait, which provides a main method:
   ```scala
-  object HelloWorld extends App {
+  // <<MyApp.scala>>
+  object MyApp extends App {
     println("Hello, World!")
   }
   ```
+  ```sh
+  $ scala-cli MyApp.scala
+  ```
   - **Explanation:**
-    - `object HelloWorld` defines a singleton object named `HelloWorld`.
-    - `extends App` makes `HelloWorld` an application with a predefined `main` method.
+    - `object MyApp` defines a singleton object named `MyApp`.
+    - `extends App` makes `MyApp` an application with a predefined `main` method.
     - `println("Hello, World!")` is a method call that prints "Hello, World!" to the console.
 
 **Explanation of the `object` and `App` Trait**
@@ -69,37 +118,6 @@
     }
     ```
     - Using `App` reduces boilerplate code, making the program simpler and more concise.
-
-**Activities:**
-1. **Writing Simple Scala Scripts**
-    - **Activity 1: "Hello, World!" Script**
-      ```scala
-      object HelloWorld extends App {
-        println("Hello, World!")
-      }
-      ```
-      - **Instructions:** 
-        - Create a new Scala file named `HelloWorld.scala`.
-        - Write the above script.
-        - Run the script using `scala-cli`:
-          ```sh
-          scala-cli HelloWorld.scala
-          ```
-
-    - **Activity 2: Understanding the Structure**
-      ```scala
-      object StructureDemo extends App {
-        println("This is a simple Scala program.")
-        println("Objects and the App trait help structure the code.")
-      }
-      ```
-      - **Instructions:**
-        - Create a new Scala file named `StructureDemo.scala`.
-        - Write the script and run it using `scala-cli`:
-          ```sh
-          scala-cli StructureDemo.scala
-          ```
-        - Discuss the structure and flow of the program.
 
 ### 2. Variables
 
@@ -321,4 +339,3 @@
 ### Additional Resources:
 - **Scala Documentation:** [Scala Basics](https://docs.scala-lang.org/tour/basics.html)
 - **Scala REPL:** Use the Scala REPL for interactive exploration of syntax and immediate feedback.
-- **Scala Exercises:** [Scala Exercises](https://www.scala-exercises.org/) for hands-on practice.
