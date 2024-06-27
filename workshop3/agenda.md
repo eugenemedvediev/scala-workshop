@@ -49,11 +49,11 @@
   $ scala-cli script.sc
   ```
 - Self executable script
-  ```scala
-  #!/usr/bin/env -S scala-cli shebang
-  // <<tool.sc>>
-  println("I do not need scala-cli to run myself")
-  ```
+```scala
+#!/usr/bin/env -S scala-cli shebang
+// <<tool.sc>>
+println("I do not need scala-cli to run myself")
+```
   ```sh
   $ scala-cli shebang tool.sc
   ```
@@ -75,14 +75,14 @@
 - A Scala program typically consists of one or more objects and classes.
 - The entry point of a Scala application is often an `object` with an `App` trait or a `main` method.
 - Example structure:
-  ```scala
-  // <<MyApp.scala>>
-  object MyApp {
-    def main(args: Array[String]): Unit = {
-      println("Hello, World!")
-    }
+```scala
+// <<MyApp.scala>>
+object MyApp {
+  def main(args: Array[String]): Unit = {
+    println("Hello, MyApp")
   }
-  ```
+}
+```
   ```sh
   $ scala-cli MyApp.scala
   ```
@@ -90,19 +90,24 @@
 **Writing a Simple "Hello, World!" Program**
 - The simplest form of a Scala program prints "Hello, World!" to the console.
 - Using the `App` trait, which provides a main method:
-  ```scala
-  // <<MyApp.scala>>
-  object MyApp extends App {
-    println("Hello, World!")
+```scala
+// <<MyApp.scala>>
+object MyApp {
+  def main(args: Array[String]): Unit = {
+    println("Hello, MyApp")
   }
-  ```
+}
+object MyApp2 extends App {
+  println("Hello, MyApp2")
+}
+```
   ```sh
-  $ scala-cli MyApp.scala
+  $ scala-cli MyApp.scala -i
   ```
   - **Explanation:**
     - `object MyApp` defines a singleton object named `MyApp`.
     - `extends App` makes `MyApp` an application with a predefined `main` method.
-    - `println("Hello, World!")` is a method call that prints "Hello, World!" to the console.
+    - `println("Hello, ...!")` is a method call that prints "Hello, World!" to the console.
 
 **Explanation of the `object` and `App` Trait**
 
@@ -111,15 +116,17 @@
   - Useful for defining utility methods or single-entry points.
   - No need to create an instance to access its members.
   - Example:
-    ```scala
-    object MyObject {
-      def greet(name: String): Unit = {
-        println(s"Hello, $name!")
-      }
+```scala
+object MyObjectApp extends App {
+  object MyObject {
+    def greet(name: String): Unit = {
+      println(s"Hello, $name!")
     }
-    
-    MyObject.greet("Alice")
-    ```
+  }
+
+  MyObject.greet("Alice")
+}
+```
     - `MyObject` is created automatically and can be used directly.
 
 - **App Trait**:
