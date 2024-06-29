@@ -7,16 +7,34 @@
 - Syntax is designed to be concise and readable.
 - Scala programs are typically composed of expressions rather than statements.
 
+**Comments**
+- Comments in Scala have 2 kinds:
+  - Documentation (multiline) `DocumentationComment.sc`:
+```scala
+/* Slash and star in the beginning and star slash in the end represents multiline comment*/
+/* This multiline comment also ignored
+by compiler*/
+```
+  - One line comments
+```scala
+// Double slash represent one line comment. All the code after double slash will be treated as one line comment
+```
+
 **Structure of a Scala script**
 - A Scala script typically consists of one or more lines of code.
 - Example structure:
 ```scala
-// <<script.sc>>
+/* In all following examples
+the first comment line will represent the name of the file
+where this code should be placed.
+For example: */
+// script.sc
+/* println method prints the content inside brackets () to the console */
 println("Hello, World!")
 println("Hello, There!")
 ```
 ```scala
-// <<script.sc>>
+// script.sc
 {
   println("Hello, World!")
   println("Hello, There!")
@@ -25,24 +43,31 @@ println("Hello, There!")
 ```sh
 $ scala-cli script.sc
 ```
+- Import another script
 ```scala
-// <<deep/Output.scala>>
+// deep/Output.scala
+/* You need to greate folder called 'deep' and put 'Output.scala' file there */
 object Output {
-  def greetMe(prefix: String, name: Int): Unit = {
-    println(s"$prefix, $name!")
+  def greetMe(message: String): Unit = {
+    println(s"$message, from deep/Output.scala file!")
   }
 }
 ```
 ```sh
-$ scala-cli Output.scala
+$ scala-cli deep/Output.scala
 ```
-- Import another script
+  You will see an error 'No main class found'. In the following examples we will
+  see how to create scala file with main execution point.
+
 ```scala
-// <<script.sc>>
+// script.sc
+/* In Scala script we can import another Scala files with double slash and > using file
+Note: that it is not comment, but instruction to use specified file in context of current script
+*/
 //> using file deep/Output.scala
 {  
-  println("Hello, World!")
-  Output.greetMe(prefix = "Hello", name = 42)
+  println("Hello, from script.sc!")
+  Output.greetMe(message = "Hello")
 }
 ```
 ```sh
@@ -51,7 +76,9 @@ $ scala-cli script.sc
 - Self executable script
 ```scala
 #!/usr/bin/env -S scala-cli shebang
-// <<tool.sc>>
+// tool.sc
+/* Important note: In the shebang scripts the first line should start with #!/
+symbols, not comments, else script should not be recognized as shebang. */
 println("I do not need scala-cli to run myself")
 ```
 ```sh
@@ -61,53 +88,40 @@ $ scala-cli shebang tool.sc
 $ chmod +x tool.sc
 $ ./tool.sc
 ```
-- Differences with Ammonite scripts
-  >Ammonite is a popular REPL for Scala that can also compile and run .sc files.
-  Scala CLI and Ammonite are similar, but differ significantly when your code is split in multiple scripts:
-  - In Ammonite, a script needs to use `import $file` directives to use values defined in another script
-  - With Scala CLI, all scripts passed can reference each other without such directives
-
-  >On the other hand:
-  - You can pass a single "entry point" script as input to Ammonite, and Ammonite finds the scripts it depends on via the `import $file` directives
-  - Scala CLI requires all scripts to be added with `//> using file ...` or to be passed beforehand, either one-by-one, or by putting them in a directory, and passing the directory to Scala CLI
+  As you can see now we can run our script without calling it via scala-cli
 
 **Structure of a Scala Program**
 - A Scala program typically consists of one or more objects and classes.
 - The entry point of a Scala application is often an `object` with an `App` trait or a `main` method.
 - Example structure:
 ```scala
-// <<MyApp.scala>>
-object MyApp {
+// ObjectWithMainMethod.scala
+object ObjectWithMainMethod {
   def main(args: Array[String]): Unit = {
-    println("Hello, MyApp")
+    println("Hello, Scala!")
   }
 }
 ```
 ```sh
-$ scala-cli MyApp.scala
+$ scala-cli ObjectWithMainMethod.scala
 ```
 
-**Writing a Simple "Hello, World!" Program**
+**Writing a Simple "Hello, Scala!" Program**
 - The simplest form of a Scala program prints "Hello, World!" to the console.
 - Using the `App` trait, which provides a main method:
 ```scala
-// <<MyApp.scala>>
-object MyApp {
-  def main(args: Array[String]): Unit = {
-    println("Hello, MyApp")
-  }
-}
-object MyApp2 extends App {
-  println("Hello, MyApp2")
+// ObjectWithAppTrait.scala
+object ObjectWithAppTrait extends App{
+  println("Hello, Scala!")
 }
 ```
 ```sh
-$ scala-cli MyApp.scala -i
+$ scala-cli ObjectWithAppTrait.scala
 ```
   - **Explanation:**
-    - `object MyApp` defines a singleton object named `MyApp`.
-    - `extends App` makes `MyApp` an application with a predefined `main` method.
-    - `println("Hello, ...!")` is a method call that prints "Hello, World!" to the console.
+    - `object ObjectWithAppTrait` defines a singleton object named `ObjectWithAppTrait`.
+    - `extends App` makes `ObjectWithAppTrait` an application with a predefined `main` method.
+    - `println("Hello, Scala!")` is a method call that prints "Hello, World!" to the console.
 
 **Explanation of the `object` and `App` Trait**
 
@@ -117,18 +131,19 @@ $ scala-cli MyApp.scala -i
   - No need to create an instance to access its members.
   - Example:
 ```scala
-// <<MyObjectApp.scala>>
-object MyObjectApp extends App {
-  object MyObject {
+// <<SingletonObjectApp.scala>>
+object SingletonObjectApp extends App {
+
+  object SingletonObject {
     def greet(name: String): Unit = {
       println(s"Hello, $name!")
     }
   }
 
-  MyObject.greet("Alice")
+  SingletonObject.greet("Scala")
 }
 ```
-    - `MyObject` is created automatically and can be used directly.
+ - `SingletonObject` is created automatically and can be used directly.
 
 
 ### 2. Variables

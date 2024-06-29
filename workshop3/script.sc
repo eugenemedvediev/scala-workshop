@@ -1,6 +1,9 @@
-// <<script.sc>>
+// script.sc
+/* In Scala script we can import another Scala files with double slash and > using file
+Note: that it is not comment, but instruction to use specified file in context of current script
+*/
 //> using file deep/Output.scala
 {  
-  println("Hello, World!")
-  Output.greetMe(prefix = "Hello", name = 42)
+  println("Hello, from script.sc!")
+  Output.greetMe(message = "Hello")
 }
