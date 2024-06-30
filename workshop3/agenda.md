@@ -1,28 +1,34 @@
-# Workshop 3: Scala Syntax and Basics
+# Workshop 3: Scala scripts, Syntax and Basics.
 
-### 1. Basic Syntax
+### 1. Scala scripts
 
-**Introduction to Scala Syntax**
+**Introduction to Scala scripts**
 - Scala is a statically typed, object-oriented, and functional programming language.
 - Syntax is designed to be concise and readable.
 - Scala programs are typically composed of expressions rather than statements.
 
+**Preparation**
+- Open terminal application or vscode and navigate to `.../scala-workshop/workshop3/` folder
+```sh
+$ cd ~/scala-workshop/workshop3
+```
+
 **Comments**
 - Comments in Scala have 2 kinds:
-  - Documentation (multiline) `DocumentationComment.sc`:
+*  - Documentation (multiline) `DocumentationComment.sc`:
 ```scala
 /* Slash and star in the beginning and star slash in the end represents multiline comment*/
 /* This multiline comment also ignored
 by compiler*/
 ```
-  - One line comments
+*  - One line comments
 ```scala
 // Double slash represent one line comment. All the code after double slash will be treated as one line comment
 ```
 
 **Structure of a Scala script**
-- A Scala script typically consists of one or more lines of code.
-- Example structure:
+- Single script. A Scala script typically consists of one or more lines of code.
+* - Example 1:
 ```scala
 /* In all following examples
 the first comment line will represent the name of the file
@@ -33,8 +39,13 @@ For example: */
 println("Hello, World!")
 println("Hello, There!")
 ```
+```sh
+$ scala-cli script.sc
+```
+* - Example 2:
 ```scala
 // script.sc
+/* Curly brackets '{}' represent the code block. */
 {
   println("Hello, World!")
   println("Hello, There!")
@@ -43,21 +54,22 @@ println("Hello, There!")
 ```sh
 $ scala-cli script.sc
 ```
-- Import another script
+- Import another script or .scala file
 ```scala
-// deep/Output.scala
-/* You need to greate folder called 'deep' and put 'Output.scala' file there */
-object Output {
+// deep/StandaloneScalaObject.scala
+/* You need to create folder called 'deep' and put 'StandaloneScalaObject.scala' file there */
+object StandaloneScalaObject {
   def greetMe(message: String): Unit = {
-    println(s"$message, from deep/Output.scala file!")
+    println(s"$message, from deep/StandaloneScalaObject.scala file!")
   }
 }
 ```
 ```sh
 $ scala-cli deep/Output.scala
 ```
-  You will see an error 'No main class found'. In the following examples we will
-  see how to create scala file with main execution point.
+You will see an error 'No main class found'. 
+
+In the following examples we will see how to create scala file with main execution point.
 
 ```scala
 // script.sc
@@ -87,13 +99,16 @@ $ scala-cli shebang tool.sc
 ```sh
 $ chmod +x tool.sc
 $ ./tool.sc
+$ sudo mv tool.sc /usr/bin/tool
+$ which tool
+$ tool
 ```
-  As you can see now we can run our script without calling it via scala-cli
+As you can see now we can run our script without calling it via scala-cli
 
 **Structure of a Scala Program**
-- A Scala program typically consists of one or more objects and classes.
-- The entry point of a Scala application is often an `object` with an `App` trait or a `main` method.
-- Example structure:
+- A Scala program typically consists of one or more `objects` and `classes`.
+- The entry point of a Scala application is an `object` with a `main` method or `App` trait.
+  - Object with `main` method entry point:
 ```scala
 // ObjectWithMainMethod.scala
 object ObjectWithMainMethod {
@@ -105,10 +120,7 @@ object ObjectWithMainMethod {
 ```sh
 $ scala-cli ObjectWithMainMethod.scala
 ```
-
-**Writing a Simple "Hello, Scala!" Program**
-- The simplest form of a Scala program prints "Hello, World!" to the console.
-- Using the `App` trait, which provides a main method:
+* - Object with `App` trait. The body inside `{}` automatically became a body of main method:
 ```scala
 // ObjectWithAppTrait.scala
 object ObjectWithAppTrait extends App{
@@ -118,18 +130,8 @@ object ObjectWithAppTrait extends App{
 ```sh
 $ scala-cli ObjectWithAppTrait.scala
 ```
-  - **Explanation:**
-    - `object ObjectWithAppTrait` defines a singleton object named `ObjectWithAppTrait`.
-    - `extends App` makes `ObjectWithAppTrait` an application with a predefined `main` method.
-    - `println("Hello, Scala!")` is a method call that prints "Hello, World!" to the console.
-
-**Explanation of the `object` and `App` Trait**
-
-- **object**:
-  - Defines a singleton instance.
-  - Useful for defining utility methods or single-entry points.
-  - No need to create an instance to access its members.
-  - Example:
+**Grouping logic inside object**
+- To make program more readable we can put our logic into `SingletonObject` and call `greet` method in the end of our code block.
 ```scala
 // <<SingletonObjectApp.scala>>
 object SingletonObjectApp extends App {
@@ -143,7 +145,14 @@ object SingletonObjectApp extends App {
   SingletonObject.greet("Scala")
 }
 ```
- - `SingletonObject` is created automatically and can be used directly.
+```sh
+$ scala-cli SingletonObjectApp.scala
+```
+**Explanation of the `object`**
+  - Defines a singleton instance.
+  - Useful for defining utility methods or single-entry points.
+  - No need to create an instance to access its members.
+  - `SingletonObject` is created automatically and can be used directly.
 
 
 ### 2. Variables
