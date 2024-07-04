@@ -158,25 +158,26 @@ $ scala-cli SingletonObjectApp.scala
 ### 2. Variables
 
 **Variable Declaration with `val` and `var`**
-- **`val` (Immutable Variable)**
-  - Declares a value that cannot be changed once assigned.
-  - Equivalent to a final variable in Java.
-  - Example:
-```scala
-// <<Val.sc>>
-val immutableValue = 10
-// immutableValue = 20 // This will cause a compilation error
-```
 - **`var` (Mutable Variable)**
   - Declares a variable whose value can be changed.
   - Should be used sparingly to encourage immutability.
   - Example:
 ```scala
-// <<Var.sc>>
+// Var.sc
 var mutableValue = 10
 println(s"mutableValue before: $mutableValue")
+
 mutableValue = 20 // This is allowed
 println(s"mutableValue after: $mutableValue")
+```
+- **`val` (Immutable Value)**
+  - Declares a value that cannot be changed once assigned.
+  - Equivalent to a final variable in Java.
+  - Example:
+```scala
+// Val.sc
+val immutableValue = 10
+// immutableValue = 20 // This will cause a compilation error
 ```
 
 **Differences Between Mutable (`var`) and Immutable (`val`) Variables**
@@ -188,62 +189,67 @@ println(s"mutableValue after: $mutableValue")
   - Scala can automatically infer the type of a variable based on the assigned value.
   - Example:
 ```scala
-// <<Types.sc>>
+// Types.sc
 val inferredInt = 42  // Type inferred as Int
+val inferredDouble = 42.0  // Type inferred as Double
 val inferredString = "Scala"  // Type inferred as String
+val inferredChar = 'S'  // Type inferred as Char
 ```
 - **Explicit Type Declaration**
   - The type can also be explicitly specified.
   - Example:
 ```scala
-// <<Types.sc>>
+// TypesExplicit.sc
 val explicitInt: Int = 42
+val explicitDouble: Double = 42.0
 val explicitString: String = "Scala"
+val explicitChar: Char = 'S'
 ```
 
 **Basic Data Types**
 - **Common Data Types**
+  - `Byte`: Byte values
+  - `Short`: Short values
   - `Int`: Integer values
+  - `Long`: Integer values
   - `Double`: Floating-point numbers
+  - `Float`: Floating-point numbers
   - `String`: Sequence of characters
+  - `Char`: character
   - `Boolean`: True or false values
-  - Example:
-```scala
-val anInt: Int = 10
-val aDouble: Double = 3.14
-val aString: String = "Hello"
-val aBoolean: Boolean = true
-```
 
-**Activities:**
-1. **Variable Declaration and Usage**
-```scala
-// <<VariablesDemo.scala>>
-object VariablesDemo extends App {
-  val immutableValue: Int = 10
-  var mutableValue: Int = 20
-  println(s"Immutable Value: $immutableValue")
-  println(s"Mutable Value: $mutableValue")
-  mutableValue += 10
-  println(s"Updated Mutable Value: $mutableValue")
-}
-```
-```sh
-scala-cli VariablesDemo.scala
-```
+| Data Type | Possible Values | Range |
+|-----------|-----------------|-------|
+|Boolean| true or false||
+|Byte| 	8-bit signed two’s complement integer (-2^7 to 2^7-1, inclusive)| -128 to 127
+|Short| 	16-bit signed two’s complement integer (-2^15 to 2^15-1, inclusive)| -32,768 to 32,767
+|Int|  	32-bit two’s complement integer (-2^31 to 2^31-1, inclusive)| -2,147,483,648 to 2,147,483,647
+|Long| 	64-bit two’s complement integer (-2^63 to 2^63-1, inclusive)| -2^63 to 2^63-1, inclusive
+|Float| 	32-bit IEEE 754 single-precision float| 1.40129846432481707e-45 to 3.40282346638528860e+38
+|Double| 	64-bit IEEE 754 double-precision float| 4.94065645841246544e-324 to 1.79769313486231570e+308
+|Char| 	16-bit unsigned Unicode character (0 to 2^16-1, inclusive)| 0 to 65,535
+|String| 	a sequence of Char||
+|
+
 
 2. **Type Inference and Explicit Types**
 ```scala
-// <<TypeInferenceDemo.scala>>
+// TypeInferenceDemo.scala
 object TypeInferenceDemo extends App {
   val inferredInt = 42
+  val inferredLong = 42L
   val inferredDouble = 3.14
+  val inferredDoubleWithD = 3.14D
+  val inferredFloat = 3.14F
   val inferredString = "Scala"
   val explicitInt: Int = 42
   val explicitDouble: Double = 3.14
   val explicitString: String = "Scala"
   println(s"Inferred Int: $inferredInt")
+  println(s"Inferred Long: $inferredLong")
   println(s"Inferred Double: $inferredDouble")
+  println(s"Inferred Double With D: $inferredDoubleWithD")
+  println(s"Inferred Float: $inferredFloat")
   println(s"Inferred String: $inferredString")
   println(s"Explicit Int: $explicitInt")
   println(s"Explicit Double: $explicitDouble")
