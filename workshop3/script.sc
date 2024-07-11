@@ -5,5 +5,5 @@ Note: that it is not comment, but instruction to use specified file in context o
 //> using file deep/StandaloneScalaObject.scala
 {  
   println("Hello, from script.sc!")
-  StandaloneScalaObject.greetMe(message = "Hello")
+  //StandaloneScalaObject.greetMe(message = "Hello")
 }

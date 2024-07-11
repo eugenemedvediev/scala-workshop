@@ -133,7 +133,7 @@ $ scala-cli ObjectWithAppTrait.scala
 **Grouping logic inside object**
 - To make program more readable we can put our logic into `SingletonObject` and call `greet` method in the end of our code block.
 ```scala
-// <<SingletonObjectApp.scala>>
+// SingletonObjectApp.scala
 object SingletonObjectApp extends App {
 
   object SingletonObject {
