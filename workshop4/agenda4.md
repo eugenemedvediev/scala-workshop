@@ -52,8 +52,10 @@
   - Manually type the code for the following example and execute it.
   - Change the value of the `a` that will execute another branch of `if-else` condition
     ```scala
+    import scala.io.StdIn
+    
     object IfElseDemo extends App {
-      val a = 7
+      val a = StdIn.readLine("Enter number: ").toInt
       if (a % 2 == 0) {
         println(s"$a is even")
       } else {
@@ -62,15 +64,17 @@
     }
     ```
     ```sh
-    $ scala-cli IfElseDemo.sc
+    $ scala-cli IfElseDemo.scala
     ```
 
 - **2. Nested `if-else`**
   - Manually type the code for the following example and execute it.
   - Change the value of the `b` that will execute another branches of `if-else` nested conditions
      ```scala
+    import scala.io.StdIn
+    
      object NestedIfElseDemo extends App {
-       val b = 15
+      val b = StdIn.readLine("Enter number: ").toInt
        if (b % 3 == 0) {
          if (b % 5 == 0) {
            println(s"$b is divisible by both 3 and 5")
@@ -83,7 +87,7 @@
      }
      ```
      ```sh
-     $ scala-cli NestedIfElseDemo.sc
+     $ scala-cli NestedIfElseDemo.scala
      ```
 
 #### **2. Loops**
@@ -136,21 +140,23 @@
 **Activities:**
 - **1. `while` Loop Example**
   - Look at the difference between `while` and `do-while` loop execution.
+  - Uncomment line `n = 1` and compare results.
     ```scala
     object WhileLoopDemo extends App {
       var n = 1
       while (n <= 5) {
-        println(s"n is $n")
+        println(s"while: n is $n")
         n += 1
       }
+      //n = 1
       do {
-        println(s"n is $n")
+        println(s"do while: n is $n")
         n += 1
       } while (n <= 5) 
     }
     ```
     ```sh
-     $ scala-cli WhileLoopDemo.sc
+     $ scala-cli -S 2.13.5 WhileLoopDemo.scala
      ```
 
 - **2. `for` Loop Example with Range**
@@ -253,5 +259,5 @@
     }
     ```
     ```sh
-    scala-cli PatternMatchingTypeDemo.scala
+    $ scala-cli PatternMatchingTypeDemo.scala
     ```
