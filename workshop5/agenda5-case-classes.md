@@ -215,8 +215,3 @@ Case classes in Scala are a special type of class that are optimized for use in 
 
 ### **Additional Resources**
 - **Scala Documentation:** [Case Classes](https://docs.scala-lang.org/tour/case-classes.html)
-- **Scala Exercises:** [Scala Exercises](https://www.scala-exercises.org/) for hands-on practice.
-
----
-
-By the end of this section, students will have a comprehensive understanding of case classes in Scala. They will learn how to define, instantiate, and use case classes, as well as how to leverage their benefits and integrate them into pattern matching. The hands-on activities will provide practical experience and reinforce these concepts.
