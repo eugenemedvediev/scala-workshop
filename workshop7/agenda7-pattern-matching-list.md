@@ -90,6 +90,15 @@
     case Nil => println("The list is empty")
   }
   ```
+- Alternative Syntax and Best Practice
+  ```scala
+  val list = List(1, 2, 3)
+
+  list match {
+    case x :: xs => println(s"Head: $x, Tail: $xs")
+    case Nil => println("The list is empty")
+  }
+  ```
 
 **b. Extracting Multiple Elements**
 
@@ -206,10 +215,46 @@
        scala-cli FirstLastMatch.scala
        ```
 
-### **Additional Resources**
-- **Scala Documentation:** [Pattern Matching](https://docs.scala-lang.org/tour/pattern-matching.html)
-- **Scala Exercises:** [Scala Exercises](https://www.scala-exercises.org/) for hands-on practice.
+### **5. Matching list with logic. Preparation for recursion**
 
----
+**a. Matching list with logic**
 
-By the end of this section, students will have a thorough understanding of how to perform pattern matching on lists in Scala. They will learn how to match against list structures, extract elements, and handle lists of varying lengths. The hands-on activities will reinforce these concepts, providing practical experience with pattern matching on collections.
+- **Example**
+  ```scala
+  val list = List(1, 2, 3, 4)
+
+  list match {
+    case Nil => println("List is empty")
+    case x :: Nil => println("List has 1 element")
+    case x :: xs => println("List has more than 1 element")
+  }
+  ```
+
+**Activities:**
+1. **Simple recursion**
+   ```scala
+   object Recursion extends App {
+     val myList = List(1, 2, 3, 4)
+
+     def loop(list: List[Int], acc: List[Int] = Nil): List[Int] = list match {
+       case Nil      => acc
+       case x :: Nil => loop(Nil, x * 2 :: acc)
+       case x :: xs  => loop(xs, x * 2 :: acc)
+     }
+
+     val result = loop(myList).reverse
+     println(s"myList: $myList")
+     println("processed by loop would be")
+     println(s"result: $result")
+
+     println("=" * 20)
+     val alternative = myList.map(_ * 2)
+     println(s"Alternative: $alternative")
+   }
+  ```
+   - **Instructions:**
+     - Create a Scala file named `Recursion.scala`.
+     - Write the script and run it using `scala-cli`:
+       ```sh
+       scala-cli Recursion.scala
+       ```
