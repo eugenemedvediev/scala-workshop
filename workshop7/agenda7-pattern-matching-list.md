@@ -1,6 +1,4 @@
-### Pattern Matching for Collections
-
-Pattern matching in Scala is powerful and versatile, allowing you to match against complex data structures such as collections. This section will focus on pattern matching with lists.
+### Workshop 7: Pattern Matching for Collections
 
 ---
 

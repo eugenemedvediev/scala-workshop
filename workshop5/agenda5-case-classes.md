@@ -1,6 +1,4 @@
-### Case Classes in Scala
-
-**Objective**: By the end of this section, students will understand the purpose, syntax, and usage of case classes in Scala. They will learn how to define, instantiate, and utilize case classes in their Scala programs.
+### Workshop 5: Case Classes in Scala
 
 ---
 

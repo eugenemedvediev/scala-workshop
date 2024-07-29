@@ -1,6 +1,4 @@
-### Pattern Matching for Case Classes
-
-**Objective**: By the end of this section, students will understand how to use pattern matching with case classes in Scala to decompose objects and extract data easily.
+### Workshop 6: Pattern Matching for Case Classes
 
 ---
 
