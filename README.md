@@ -1,6 +1,10 @@
 # Scala-workshop
+- [Workshop 2: Git basics and project preparation](workshp2/agenda.md)
 - [Workshop 3: Scala scripts, Syntax and Basics](workshop3/agenda.md)
 - [Workshop 4: Control Structures in Scala](workshop4/agenda4.md)
 - [Workshop 5: Case Classes](workshop5/agenda5-case-classes.md)
 - [Workshop 6: Pattern Matching in Case Classes](workshop6/agenda6-pattern-matching-case-classes.md)
 - [Workshop 7: Pattern Matching for Collections](workshop7/agenda7-pattern-matching-list.md)
+- [Workshop 8: Project structure](workshop8/agenda8.md)
+- [Workshop 9: Options and For Comprehension in Scala](workshop9/agenda9.md)
+- [Workshop 10: Creating a Minimal SBT Project with Console Input](workshop10/agenda10.md)

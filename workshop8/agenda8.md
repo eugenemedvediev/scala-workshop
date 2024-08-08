@@ -60,10 +60,10 @@
       cd example2 
       touch project.scala
       touch README.md
-      mkdir -p {src/main/scala/, src/test/scala/}
-      touch src/main/scala/Main.scala 
-      touch src/main/scala/Logic.scala 
-      touch src/test/scala/LogicSpec.scala 
+      mkdir -p src/main/scala/ src/test/scala/
+      touch src/main/scala/Main2.scala 
+      touch src/main/scala/Logic2.scala 
+      touch src/test/scala/Logic2Spec.scala 
       tree
       ```
     - **Instructions:**
@@ -71,47 +71,47 @@
 
 2. **Write Logic.scala**
    ```scala
-   object Logic {
+   object Logic2 {
      def run(value: String) = s"'$value' is running"
    }
    ```
    - **Instructions:**
-     - Edit a Scala file named `Logic.scala` in `example2/src/main/scala/`.
+     - Edit a Scala file named `Logic2.scala` in `example2/src/main/scala/`.
      
 3. **Write Main.scala**
    ```scala
-   object Main {
+   object Main2 {
      def main(args: Array[String]): Unit = {
-       val logicRunResult = Logic.run(
+       val logicRunResult = Logic2.run(
          args.mkString(", ")
        )
-       println(s"Main: Logic Run Result: $logicRunResult")
+       println(s"Main2: Logic Run Result: $logicRunResult")
      }
    }
    ```
    - **Instructions:**
-     - Edit a Scala file named `Main.scala` in `example2/src/main/scala/`.
+     - Edit a Scala file named `Main2.scala` in `example2/src/main/scala/`.
 
-4. **Write LogicSpec.scala**
+4. **Write Logic2Spec.scala**
    ```scala
    import org.scalatest.*
    import org.scalatest.matchers.*
    import org.scalatest.matchers.should.Matchers.shouldEqual
    import org.scalatest.wordspec.AnyWordSpec
 
-   class LogicSpec extends AnyWordSpec {
-     "Logic" must {
+   class Logic2Spec extends AnyWordSpec {
+     "Logic2" must {
        "run scenario 1 successfully" in {
-         Logic.run("a") shouldEqual "'a' is running"
+         Logic2.run("a") shouldEqual "'a' is running"
        }
        "run scenario 2 successfully" in {
-         Logic.run("b") shouldEqual "'b' is running"
+         Logic2.run("b") shouldEqual "'b' is running"
        }
      }
    }
    ```
    - **Instructions:**
-     - Edit a Scala file named `LogicSpec.scala` in `example2/src/test/scala/`.
+     - Edit a Scala file named `Logic2Spec.scala` in `example2/src/test/scala/`.
 
 ### **3. Compile, Test and Run project**
 
@@ -136,7 +136,7 @@
    ```
 2. **Execute Spec by name**
    ```sh
-   scala-cli test . --test-only "LogicSpec"
+   scala-cli test . --test-only "Logic2Spec"
    ```
 3. **Execute tests in Spec by wildcard**
    ```sh
@@ -144,7 +144,7 @@
    ```
 4. **Execute test in Spec by name**
    ```sh
-   scala-cli test . --test-only "Logic*" -- -t "Logic must run scenario 2 successfully"
+   scala-cli test . --test-only "Logic*" -- -t "Logic2 must run scenario 2 successfully"
    ```
 5. **Run project with parameters**
    ```sh
