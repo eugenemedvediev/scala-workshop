@@ -78,6 +78,7 @@
   val number: Option[Int] = Some(10)
 
   val result = number.map(_ * 2)
+  val result = number.map(_ * 2)
   println(result) // Output: Some(20)
   ```
 
