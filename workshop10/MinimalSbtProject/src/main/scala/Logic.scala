@@ -1,5 +1,5 @@
 package nl.rasom.scala.workshop
-object ConsoleLogic {
+object Logic {
 
   def execute(console: CustomConsole): Unit = {
 

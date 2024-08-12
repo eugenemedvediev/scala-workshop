@@ -3,7 +3,7 @@ import org.scalatest.wordspec.AnyWordSpec
 import org.scalatestplus.mockito.MockitoSugar
 import org.scalatest.matchers.should.Matchers
 
-class ConsoleLogicSpec extends AnyWordSpec with MockitoSugar with Matchers {
+class LogicSpec extends AnyWordSpec with MockitoSugar with Matchers {
   trait Scope {
     trait WithMessage {
       def getMessages(): Seq[String]
@@ -24,9 +24,9 @@ class ConsoleLogicSpec extends AnyWordSpec with MockitoSugar with Matchers {
     }
   }
 
-  "ConsoleLogicSpec" should {
+  "LogicSpec" should {
     "execute successfully" in new Scope {
-      ConsoleLogic.execute(console)
+      Logic.execute(console)
       console.getMessages() shouldEqual List(
         "Please enter your name:",
         "Please enter your age:",
