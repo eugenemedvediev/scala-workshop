@@ -42,7 +42,7 @@
 
 2. **Create the directory structure**:
    ```sh
-   mkdir -p src/main/scala
+   mkdir -p src/main/scala src/test/scala
    ```
 
 **b. Create the `build.sbt` File**
@@ -180,11 +180,3 @@
 
 ---
 
-### **Additional Resources**
-- **Scala Documentation:** [SBT](https://www.scala-sbt.org/)
-- **SBT by Example:** [SBT Documentation](https://www.scala-sbt.org/1.x/docs/sbt-by-example.html)
-- **Scala Exercises:** [Scala Exercises](https://www.scala-exercises.org/) for hands-on practice.
-
----
-
-By the end of this workshop, students will have successfully set up a minimal SBT project, written a Scala script that interacts with the console, and used `for-comprehension` to manage user input in an elegant and concise way. This foundational knowledge will be essential for developing more complex Scala applications in the future.
