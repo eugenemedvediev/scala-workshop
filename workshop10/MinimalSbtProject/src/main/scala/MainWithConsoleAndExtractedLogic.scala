@@ -1,4 +1,6 @@
-package nl.rasom.scala.workshop
+package nl.rasom.scala.workshop.extracted
+
+import nl.rasom.scala.workshop.DefaultConsole
 
 class MainWithConsoleAndExtractedLogic extends App {
 

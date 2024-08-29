@@ -56,7 +56,7 @@
    ```scala
    name := "MinimalSbtProject"
 
-   version := "0.1"
+   version := "0.0.1"
 
    scalaVersion := "2.13.12"
    ```

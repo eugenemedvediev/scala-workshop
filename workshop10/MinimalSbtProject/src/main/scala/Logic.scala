@@ -1,4 +1,6 @@
-package nl.rasom.scala.workshop
+package nl.rasom.scala.workshop.extracted
+import nl.rasom.scala.workshop.CustomConsole
+
 object Logic {
 
   def execute(console: CustomConsole): Unit = {
@@ -10,12 +12,11 @@ object Logic {
       age <- console.readLine()
       _ <- console.println("Please enter your city:")
       city <- console.readLine()
-    } yield s"Name: $name, Age: $age, City: $city"
+      _ <- console.println("Please enter your street:")
+      street <- console.readLine()
+    } yield s"User Details: Name: $name, Age: $age, City: $city, Street: $street"
 
-    result match {
-      case Some(data) => console.println(s"User Details: $data")
-      case None       => console.println("Some input was missing, exiting...")
-    }
+    result.map(console.println)
   }
 
 }

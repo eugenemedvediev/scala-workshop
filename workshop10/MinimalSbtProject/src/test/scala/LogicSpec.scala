@@ -1,7 +1,9 @@
-package nl.rasom.scala.workshop
+package nl.rasom.scala.workshop.extracted
+
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatestplus.mockito.MockitoSugar
 import org.scalatest.matchers.should.Matchers
+import nl.rasom.scala.workshop.CustomConsole
 
 class LogicSpec extends AnyWordSpec with MockitoSugar with Matchers {
   trait Scope {
@@ -10,7 +12,7 @@ class LogicSpec extends AnyWordSpec with MockitoSugar with Matchers {
     }
     val console = new CustomConsole with WithMessage {
       var messages: Seq[String] = Nil
-      var fakeInput = List("1", "2", "3")
+      var fakeInput = List("1", "2", "3", "4")
       def println(message: String): Option[Unit] = {
         messages = messages :+ message
         Some(())
@@ -31,7 +33,8 @@ class LogicSpec extends AnyWordSpec with MockitoSugar with Matchers {
         "Please enter your name:",
         "Please enter your age:",
         "Please enter your city:",
-        "User Details: Name: 1, Age: 2, City: 3"
+        "Please enter your street:",
+        "User Details: Name: 1, Age: 2, City: 3, Street: 4"
       )
     }
   }

@@ -1,4 +1,5 @@
 package nl.rasom.scala.workshop
+
 object MainWithConsole extends App {
 
   val console = new DefaultConsole
@@ -12,8 +13,5 @@ object MainWithConsole extends App {
     city <- console.readLine()
   } yield s"Name: $name, Age: $age, City: $city"
 
-  result match {
-    case Some(data) => println(s"User Details: $data")
-    case None       => println("Some input was missing, exiting...")
-  }
+  result.map(println)
 }
