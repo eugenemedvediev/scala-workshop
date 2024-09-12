@@ -126,6 +126,9 @@
 10. **Sprint Planning** (Team)
 11. **Celebrate Completion** (Team Cake!)
 
+### **Miro Board**
+  https://miro.com/app/board/uXjVLf3jMDE=/?share_link_id=768427337153
+
 ---
 
 This SCRUM workflow will allow the team to iterate quickly, improve continuously, and deliver a functional project while learning the collaborative process of software development.
