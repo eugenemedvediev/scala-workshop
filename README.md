@@ -11,3 +11,4 @@
 - [Workshop 10: Creating a Minimal SBT Project with Console Input](workshop10/agenda10.md)
 - [Workshop 11: Exercise: Test Driven Development](workshop11/agenda11.md)
 - [Workshop 12: Creating a GitHub Repository and Setting Up SSH Keys](workshop12/agenda12.md)
+- [Workshop 13: Working on a Project Using SCRUM](workshop13/agenda13.md)
