@@ -12,6 +12,8 @@
 
 - The designated student acting as the **Product Owner** (PO) should start by brainstorming and identifying a project idea. This project will serve as the basis for the SCRUM workflow.
 - The idea can be a web application, CLI tool, or any software that is achievable within a few sprints.
+- Use Miro to present the idea.
+![Idea for project agenda](assets/idea-project-agenda.png)
 
 ---
 
@@ -20,10 +22,11 @@
 - The **Product Owner** breaks down the overall idea into **Epics** (large pieces of functionality or features).
 - Each epic should be clearly defined and align with the goal of the project. 
 - **Example Epics**:
-  - User Authentication System
-  - Data Persistence
-  - Frontend Interface
-  - API Integration
+  - It must be a CLI app [EAG-1]
+  - task list for a certain amount of time (day, week, month)
+  - i want to be able to check tasks as done
+  - i want tasks to have priorities(low - green, medium - blue, high - orange)
+  - I want a weather forecast for everydayof the week(time limit: day, week)
 
 ---
 
@@ -129,6 +132,8 @@
 ### **Miro Board**
   https://miro.com/app/board/uXjVLf3jMDE=/?share_link_id=768427337153
 
+### TODO:
+ - Create list of all SCRUM terms
 ---
 
 This SCRUM workflow will allow the team to iterate quickly, improve continuously, and deliver a functional project while learning the collaborative process of software development.
