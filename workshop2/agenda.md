@@ -7,7 +7,6 @@
 2. Get latest changes from the remote server
 3. Hard reset to origin main branch
 
-
 ---
 
 ### **1. Clone repository**

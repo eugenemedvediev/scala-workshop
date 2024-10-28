@@ -12,3 +12,4 @@
 - [Workshop 11: Exercise: Test Driven Development](workshop11/agenda11.md)
 - [Workshop 12: Creating a GitHub Repository and Setting Up SSH Keys](workshop12/agenda12.md)
 - [Workshop 13: Working on a Project Using SCRUM](workshop13/agenda13.md)
+- [Workshop 14: zio-cli as a base for cli application](workshop14/agenda14.md)
