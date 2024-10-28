@@ -1,6 +1,6 @@
 # Scala-workshop
 - [Workshop 1: Intro](workshop1/agenda1.md)
-- [Workshop 2: Git basics and project preparation](workshp2/agenda.md)
+- [Workshop 2: Git basics and project preparation](workshop2/agenda.md)
 - [Workshop 3: Scala scripts, Syntax and Basics](workshop3/agenda.md)
 - [Workshop 4: Control Structures in Scala](workshop4/agenda4.md)
 - [Workshop 5: Case Classes](workshop5/agenda5-case-classes.md)
