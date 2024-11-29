@@ -7,7 +7,8 @@
 2. Build the simple zio-cli project
 3. Pack the project using `sbt-assembly`
 4. Pack the project using `sbt-native-packager`
-5. Test the project
+5. Pack the project using `sbt-scala-native`
+6. Test the project
 
 ---
 
@@ -52,7 +53,7 @@
 ### **3. Pack the project using `sbt-assembly`**
 
 - **Dependency for sbt-assembly**
-  Add the following code to `project/plugins.scala`
+  Add the following code to `project/plugins.sbt`
   ```scala
   addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "2.3.0")
   ```
@@ -65,14 +66,24 @@
 - **Set executable permissions**
   Find `.jar` file in the `target` directory
   ```sh
-  chmod +x { filename }.jar
+  chmod +x agenda-assembly-0.1.1-SNAPSHOT.jar
+  sudo mv target/scala-2.13/agenda-assembly-0.1.1-SNAPSHOT.jar /usr/bin/agenda.jar
   ```
 - **Execute application**
+  Create wrapper `agenda` with content:
+  ```script
+  #!/bin/bash
+  java -jar /usr/bin/agenda.jar $@
+  ```
+  ```sh
+  sudo chmod +x /usr/bin/agenda
+  which agenda 
+  ```
   
 ### **4. Pack the project using `sbt-native-packager`**
 
 - **Dependency for sbt-native-packer**
-  Add the following code to `project/plugins.scala`
+  Add the following code to `project/plugins.sbt`
   ```scala
   addSbtPlugin("com.github.sbt" % "sbt-native-packager" % "1.10.4")
   ```
@@ -101,7 +112,51 @@
   which agenda
   ```
   
-### **5. Test the project**
+### **5. Pack the project using `sbt-scala-native`**
+
+- **Dependency for sbt-native-packer**
+  Add the following code to `project/plugins.sbt`
+  ```scala
+  addSbtPlugin("org.scala-native" % "sbt-scala-native" % "0.4.5")
+  ```
+- **Prepare build.sbt**
+  Add the following lines to the `build.sbt`:
+  ```scala
+  enablePlugins(ScalaNativePlugin)
+  ```
+  Note that you need to comment enablePlugins(ScalaNativePlugin) to be able to
+  run tests
+- **Import Build**
+- **Execute sbt**
+  ```sh
+  sbt
+  sbt:agenda> nativeLink
+  ```
+- **Move to /usr/bin/...**
+  Find `agenda-out` file in the `target` directory
+  ```sh
+  sudo mv ./target/scala-2.13/agenda-out /usr/bin/agenda-out
+  ```
+- **Make wrapper**
+  Make wrapper script which automatically puts result to the system clipboard
+  ```sh
+  sudo nvim /usr/bin/agenda
+  ```
+  content of agenda:
+  ```
+  #!/bin/bash
+
+  value=$(/usr/bin/agenda $@)
+  echo $value | xclip -selection clipboard
+  echo $value
+  ```
+
+- add executive rights to the wrapper script
+  ```sh
+  sudo chmod +x /usr/bin/agenda
+  ```
+  
+### **6. Test the project**
 
 - **Execute application with the parameters**
   ```sh
