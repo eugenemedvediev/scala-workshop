@@ -1,9 +1,15 @@
 # Workshop 3: Scala scripts, Syntax and Basics.
+---
+
+## Topics:
+1. Scala scripts
+
+---
 
 ### 1. Scala scripts
 
 **Introduction to Scala scripts**
-- Scala is a statically typed, object-oriented, and functional programming language.
+- Scala is a statically typed functional programming language.
 - Syntax is designed to be concise and readable.
 - Scala programs are typically composed of expressions rather than statements.
 
@@ -207,6 +213,7 @@ val explicitChar: Char = 'S'
 ```
 
 **Basic Data Types**
+- **Class Diagramm with Any and Nothing
 - **Common Data Types**
   - `Byte`: Byte values
   - `Short`: Short values
