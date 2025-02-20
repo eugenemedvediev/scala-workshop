@@ -60,6 +60,14 @@ $ scala-cli script.sc
 ```sh
 $ scala-cli script.sc
 ```
+- Write first method
+```scala
+def greetMe(message: String): Unit = {
+  println(s"$message, from method!")
+  println("1" + message + " ,from method!")
+}
+greetMe("Hello")
+```
 - Import another script or .scala file
 ```scala
 // deep/StandaloneScalaObject.scala
